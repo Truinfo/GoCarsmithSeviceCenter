@@ -11,7 +11,7 @@ const CheckEmailVerifiedOrNot = () => {
 
   const checkEmailVerification = async () => {
     try {
-      const response = await fetch(`http://localhost:2000/api/serviceCenter/checkEmailVerified`, {
+      const response = await fetch(`https://gocarsmithbackend.onrender.com/api/serviceCenter/checkEmailVerified`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

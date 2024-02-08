@@ -36,7 +36,7 @@ const StaffList = () => {
 
   const fetchData = () => {
     axios
-      .get(`http://localhost:2000/api/ServiceCenter/getEmployees/${serviceCenterId}`, {
+      .get(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/getEmployees/${serviceCenterId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -54,7 +54,7 @@ const StaffList = () => {
 
   const handleDeleteEmployee = (employeeId) => {
     axios
-      .delete(`http://localhost:2000/api/ServiceCenter/deleteEmployee/${employeeId}`, {
+      .delete(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/deleteEmployee/${employeeId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

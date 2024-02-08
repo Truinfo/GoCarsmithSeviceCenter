@@ -57,7 +57,7 @@ console.log(email)
     };
     try {
       const response = await axios.post(
-        "http://localhost:2000/api/serviceCenter/sendInventoryRequest",
+        "https://gocarsmithbackend.onrender.com/api/serviceCenter/sendInventoryRequest",
         requestData,
         {
           method: "POST",

@@ -26,7 +26,7 @@ const ServiceCenterProfile = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:2000/api/serviceCenter/getServiceCenterDetailsBy/${serviceCenterId}`, {
+      const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/getServiceCenterDetailsBy/${serviceCenterId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

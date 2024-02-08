@@ -30,7 +30,7 @@ const EditCenter = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/serviceCenter/getServiceCenterDetailsBy/${serviceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/serviceCenter/getServiceCenterDetailsBy/${serviceCenterId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const EditCenter = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:2000/api/serviceCenter/updateProfileDetailsBy/${serviceCenterId}`,
+        `https://gocarsmithbackend.onrender.com/api/serviceCenter/updateProfileDetailsBy/${serviceCenterId}`,
         formData,
         {
           headers: {
@@ -136,7 +136,7 @@ const EditCenter = () => {
                     }}
                 >
                     <img
-                        src={`http://localhost:2000${userDetails.profilePicture}`}
+                        src={`https://gocarsmithbackend.onrender.com${userDetails.profilePicture}`}
                         alt="Profile"
                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     />

@@ -36,7 +36,7 @@ const InventoryList = () => {
 
   const fetchInventoryItems = async () => {
     try {
-      const response = await axios.get(`http://localhost:2000/api/ServiceCenter/inventoryByServiceCenter/${ServiceCenterId}`, {
+      const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/inventoryByServiceCenter/${ServiceCenterId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -79,7 +79,7 @@ const InventoryList = () => {
   };
 
   const handleDeleteItem = (inventoryId) => {
-    axios.delete(`http://localhost:2000/api/ServiceCenter/Itemsdelete/${inventoryId}`, {
+    axios.delete(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/Itemsdelete/${inventoryId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

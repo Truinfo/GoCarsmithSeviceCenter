@@ -26,7 +26,7 @@ const EmployeeFormEdit = ({ employee, onFormSubmit }) => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:2000/api/ServiceCenter/update/${employee.employeeId}`,
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/update/${employee.employeeId}`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

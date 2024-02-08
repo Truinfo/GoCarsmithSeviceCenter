@@ -116,7 +116,7 @@ const navigate=useNavigate()
         event.preventDefault();
         try {
             const response = await axios.put(
-                `http://localhost:2000/api/ServiceCenter/updateInvoice/${editedInvoiceData._id}`,
+                `https://gocarsmithbackend.onrender.com/api/ServiceCenter/updateInvoice/${editedInvoiceData._id}`,
                 editedInvoiceData, {
                     headers: { Authorization: `Bearer ${token}` },
                 }

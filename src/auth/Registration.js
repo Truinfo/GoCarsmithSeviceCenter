@@ -25,7 +25,7 @@ const Registration = ({ onSubmit }) => {
 
   const getServiceCenterByEmail = async (email) => {
     try {
-      const response = await fetch(`http://localhost:2000/api/admin/serviceCenter/getservicecenterbyemail/${email}`, {
+      const response = await fetch(`https://gocarsmithbackend.onrender.com/api/admin/serviceCenter/getservicecenterbyemail/${email}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const Registration = ({ onSubmit }) => {
 
   const getLocations = async () => {
     try {
-      const response = await fetch('http://localhost:2000/api/admin/getLocations');
+      const response = await fetch('https://gocarsmithbackend.onrender.com/api/admin/getLocations');
       const data = await response.json();
 
       if (response.ok) {
@@ -79,7 +79,7 @@ const Registration = ({ onSubmit }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:2000/api/serviceCenter/signup', {
+      const response = await fetch('https://gocarsmithbackend.onrender.com/api/serviceCenter/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

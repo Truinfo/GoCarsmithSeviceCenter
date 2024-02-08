@@ -40,7 +40,7 @@ const InvoiceList = () => {
   useEffect(() => {
     // Fetch the list of invoices when the component mounts
     axios
-      .get(`http://localhost:2000/api/ServiceCenter/getServiceCenterInvoiceBy/${_id}`, {
+      .get(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/getServiceCenterInvoiceBy/${_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setInvoices(response.data))
@@ -57,7 +57,7 @@ const InvoiceList = () => {
   const handleUpdate = () => {
     // Fetch the updated list of invoices
     axios
-      .get(`http://localhost:2000/api/ServiceCenter/getServiceCenterInvoiceBy/${_id}`, {
+      .get(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/getServiceCenterInvoiceBy/${_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setInvoices(response.data))
@@ -123,7 +123,7 @@ const InvoiceList = () => {
     try {
       // const couponId = coupons[selectedCard]._id;
       const response = await axios.delete(
-        `http://localhost:2000/api/ServiceCenter/deleteInvoice/${invoiceId}`,
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/deleteInvoice/${invoiceId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -133,7 +133,7 @@ const InvoiceList = () => {
       if (response) {
         // Check if the response is an array
         axios
-          .get(`http://localhost:2000/api/ServiceCenter/getServiceCenterInvoiceBy/${_id}`, {
+          .get(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/getServiceCenterInvoiceBy/${_id}`, {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then(
@@ -154,12 +154,12 @@ const InvoiceList = () => {
   const handleDownload = async (_id) => {
     try {
       const response = await axios.get(
-        `http://localhost:2000/api/ServiceCenter/generatePdf/${_id}`, {
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/generatePdf/${_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       if (response.status === 200) {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getInvoiceById/${_id}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getInvoiceById/${_id}`,
           { responseType: "blob" }, {
           headers: { Authorization: `Bearer ${token}` },
         } // Set responseType to 'blob' for binary data

@@ -43,7 +43,7 @@ console.log(carModelNames)
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/getAppointmentByServiceCenterId/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/getAppointmentByServiceCenterId/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -57,7 +57,7 @@ console.log(carModelNames)
     const fetchDataOnsiteAppointment = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -72,7 +72,7 @@ console.log(carModelNames)
   const getModelName = async (carModel) => {
     try {
       // Replace 'your-api-endpoint' with the actual endpoint of your API
-      const response = await axios.get(`http://localhost:2000/api/serviceCenter/CarmodelNameBy/${carModel}`,
+      const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/CarmodelNameBy/${carModel}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -95,7 +95,7 @@ console.log(carModelNames)
     });
     try {
       const response = await axios.get(
-        `http://localhost:2000/api/ServiceCenter/ListOfSevicesBy/${_id}`,
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/ListOfSevicesBy/${_id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

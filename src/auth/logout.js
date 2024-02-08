@@ -12,7 +12,7 @@ const SignOut = () => {
       console.log(token);
       // Make a request to the signout API endpoint with the authorization header
       const response = await axios.post(
-        "http://localhost:2000/api/serviceCenter/signout",
+        "https://gocarsmithbackend.onrender.com/api/serviceCenter/signout",
         {},
         {
           headers: {

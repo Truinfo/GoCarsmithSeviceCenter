@@ -9,7 +9,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     // Fetch reviews when the component mounts
-    fetch(`http://localhost:2000/api/ServiceCenter/ServiceCenterReviews/${serviceCenterId}`, {
+    fetch(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/ServiceCenterReviews/${serviceCenterId}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(response => response.json())

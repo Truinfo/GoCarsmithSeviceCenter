@@ -57,7 +57,7 @@ const RequestForm = () => {
 
   const fetchRequestDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:2000/api/serviceCenter/getInventoryRequest/${_id}`, {
+      const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/getInventoryRequest/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -83,14 +83,14 @@ const RequestForm = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:2000/api/serviceCenter/deleteRequestById/${selectedRequestId}`, {
+      const response = await axios.delete(`https://gocarsmithbackend.onrender.com/api/serviceCenter/deleteRequestById/${selectedRequestId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
       if (response && response.data) {
-        const updatedResponse = await axios.get(`http://localhost:2000/api/serviceCenter/getInventoryRequest/${_id}`, {
+        const updatedResponse = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/getInventoryRequest/${_id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -130,7 +130,7 @@ const RequestForm = () => {
   useEffect(() => {
     const getInventoryRequestDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:2000/api/serviceCenter/getInventoryRequest/${_id}`, {
+        const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/getInventoryRequest/${_id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

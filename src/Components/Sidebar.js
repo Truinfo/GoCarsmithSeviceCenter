@@ -40,7 +40,7 @@ export default function PrimarySearchAppBar() {
     const fetchUnreadNotificationsCount = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getUnreadNotificationsCount/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getUnreadNotificationsCount/${ServiceCenterId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ export default function PrimarySearchAppBar() {
       console.log("Token", token);
       // Make a request to the signout API endpoint with the authorization header
       const response = await axios.post(
-        "http://localhost:2000/api/serviceCenter/signout",
+        "https://gocarsmithbackend.onrender.com/api/serviceCenter/signout",
         {},
         {
           headers: {

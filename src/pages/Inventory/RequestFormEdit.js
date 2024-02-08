@@ -61,7 +61,7 @@ const RequestFormEdit = ({ requests, onFormSubmit }) => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:2000/api/serviceCenter/updateRequest/${requests._id}`,
+        `https://gocarsmithbackend.onrender.com/api/serviceCenter/updateRequest/${requests._id}`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

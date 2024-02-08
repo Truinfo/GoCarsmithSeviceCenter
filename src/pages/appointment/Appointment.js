@@ -49,7 +49,7 @@ function Appointments({ onAppointmentCreated }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/appointments/${serviceCenterId}`,{
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/appointments/${serviceCenterId}`,{
             headers: { Authorization: `Bearer ${token}` },
           });
   
@@ -101,7 +101,7 @@ const [filteredAppointments, setFilteredAppointments] = useState([]);
   const handleSaveStatus = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:2000/api/ServiceCenter/completedAppointment/${appointmentid}`,
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/completedAppointment/${appointmentid}`,
          {editedStatus},{
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -112,7 +112,7 @@ const [filteredAppointments, setFilteredAppointments] = useState([]);
         setOpenDialog(false);
         try {
           const response = await axios.get(
-            `http://localhost:2000/api/ServiceCenter/appointments/${serviceCenterId}`,{
+            `https://gocarsmithbackend.onrender.com/api/ServiceCenter/appointments/${serviceCenterId}`,{
               headers: { Authorization: `Bearer ${token}` },
             });
           const sortedAppointments = response.data.sort(
@@ -174,12 +174,12 @@ const [filteredAppointments, setFilteredAppointments] = useState([]);
   const deleteAppointment = async (_id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:2000/api/ServiceCenter/deleteAppointmnetBy/${_id}`,{
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/deleteAppointmnetBy/${_id}`,{
           headers: { Authorization: `Bearer ${token}` },
         });
       if (response) {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/appointments/${serviceCenterId}`,{
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/appointments/${serviceCenterId}`,{
             headers: { Authorization: `Bearer ${token}` },
           });
         const sortedAppointments = response.data.sort(

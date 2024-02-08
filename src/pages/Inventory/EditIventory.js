@@ -48,7 +48,7 @@ const EditInventory = ({ items = {}, onFormSubmit }) => {
 
         try {
             // Make a PUT request to update the inventory item
-            await axios.put(`http://localhost:2000/api/ServiceCenter/updateInventory/${items._id}`, formData,{
+            await axios.put(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/updateInventory/${items._id}`, formData,{
                 method: "PUT",
                 headers: {
                   Authorization: `Bearer ${token}`,

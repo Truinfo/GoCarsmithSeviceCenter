@@ -42,7 +42,7 @@ const AddInventoryItemForm = () => {
         try {
             // Make a POST request to the backend endpoint to add an inventory item
             await axios.post(
-                `http://localhost:2000/api/ServiceCenter/addInventoryItem`,
+                `https://gocarsmithbackend.onrender.com/api/ServiceCenter/addInventoryItem`,
                 {
                   ...formData,
                   serviceCenterID: _id,
@@ -77,7 +77,7 @@ const AddInventoryItemForm = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("http://localhost:2000/api/serviceCenter/getcategories/get", {
+                const response = await fetch("https://gocarsmithbackend.onrender.com/api/serviceCenter/getcategories/get", {
                       method: 'GET',
                       headers: {
                         Authorization: `Bearer ${token}`,

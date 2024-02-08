@@ -99,7 +99,7 @@ export default function Dash() {
     const fetchInventoryCount = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/get/getInventoryCount`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/get/getInventoryCount`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -120,7 +120,7 @@ export default function Dash() {
       try {
         // Make a GET request to your backend API endpoint for fetching inventory items
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/inventoryByServiceCenter/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/inventoryByServiceCenter/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -145,7 +145,7 @@ export default function Dash() {
       try {
         // Make a GET request to your backend API endpoint for fetching inventory items
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getTotalAppointmentsBy/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalAppointmentsBy/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -163,7 +163,7 @@ export default function Dash() {
       try {
         // Make a GET request to your backend API endpoint for fetching inventory items
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -180,7 +180,7 @@ export default function Dash() {
     const getTotalInvoice = () => {
       axios
         .get(
-          `http://localhost:2000/api/ServiceCenter/getServiceCenterInvoiceBy/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getServiceCenterInvoiceBy/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -193,7 +193,7 @@ export default function Dash() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getAppointmentByServiceCenterId/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getAppointmentByServiceCenterId/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -209,7 +209,7 @@ export default function Dash() {
     const fetchDataOnsiteAppointment = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

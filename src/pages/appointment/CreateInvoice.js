@@ -153,7 +153,7 @@ const CreateInvoice = ({ appointmentData, onClose }) => {
     
 
       const response = await axios.post(
-        "http://localhost:2000/api/ServiceCenter/invoiceGenerate", invoiceDataToSend,{
+        "https://gocarsmithbackend.onrender.com/api/ServiceCenter/invoiceGenerate", invoiceDataToSend,{
           headers: { Authorization: `Bearer ${token}` },
         });
 

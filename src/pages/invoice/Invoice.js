@@ -23,7 +23,7 @@ const Invoice = () => {
   const fetchInvoices = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:2000/api/ServiceCenter/getServiceCenterInvoiceBy/${serviceCenterId}`,
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getServiceCenterInvoiceBy/${serviceCenterId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

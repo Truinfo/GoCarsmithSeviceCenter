@@ -14,7 +14,7 @@ function Notifications() {
     const fetchNotifications = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getNotificationsByReceivers/${serviceCenterId}`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getNotificationsByReceivers/${serviceCenterId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ function Notifications() {
     if (!notification.viewed) {
       try {
         await axios.put(
-          `http://localhost:2000/api/ServiceCenter/markNotificationsAsViewed`,
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/markNotificationsAsViewed`,
           {
             serviceCenterId: serviceCenterId,
             messageId: notification._id,

@@ -123,7 +123,7 @@ function OnsiteAppointment({ onAppointmentCreated }) {
     const fetchOnsiteData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${serviceCenterId}`,{
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${serviceCenterId}`,{
             headers: { Authorization: `Bearer ${token}` },
           });
   
@@ -144,13 +144,13 @@ function OnsiteAppointment({ onAppointmentCreated }) {
   const deleteOnsiteAppointment = async (_id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:2000/api/ServiceCenter/deleteOnsitEAppointmnetBy/${_id}`,{
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/deleteOnsitEAppointmnetBy/${_id}`,{
           headers: { Authorization: `Bearer ${token}` },
         });
       if (response) {
         try {
           const response = await axios.get(
-            `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${serviceCenterId}`,{
+            `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${serviceCenterId}`,{
               headers: { Authorization: `Bearer ${token}` },
             });
           const sortedOnsiteAppointments = response.data.sort(
@@ -172,7 +172,7 @@ function OnsiteAppointment({ onAppointmentCreated }) {
   const handleSaveStatusOnsiteAppointments = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:2000/api/ServiceCenter/completedOnsiteAppointment/${onsiteAppointmentId}`,
+        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/completedOnsiteAppointment/${onsiteAppointmentId}`,
         {editedStatus} ,{
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -181,7 +181,7 @@ function OnsiteAppointment({ onAppointmentCreated }) {
       if (response.status === 200) {
         setOpenDialogOnsiteAppointment(false);
         const response = await axios.get(
-          `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${serviceCenterId}`,{
+          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${serviceCenterId}`,{
             headers: { Authorization: `Bearer ${token}` },
           });
         const sortedOnsiteAppointments = response.data.sort(

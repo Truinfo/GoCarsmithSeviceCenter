@@ -174,7 +174,7 @@ const token = localStorage.getItem('token');
         calculateCartAmount()
         const fetchBrands = async () => {
             try {
-                const response = await axios.get('http://localhost:2000/api/serviceCenter/getBrands',
+                const response = await axios.get('https://gocarsmithbackend.onrender.com/api/serviceCenter/getBrands',
                 {
                     headers: {
                       "Content-Type": "application/json",
@@ -194,7 +194,7 @@ const token = localStorage.getItem('token');
         fetchBrands();
         const fetchModel = async () => {
             try {
-                const response = await axios.get(`http://localhost:2000/api/serviceCenter/getModel/${brandId}`,
+                const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/getModel/${brandId}`,
                 {
                     headers: {
                       "Content-Type": "application/json",
@@ -213,7 +213,7 @@ const token = localStorage.getItem('token');
         fetchModel()
         const fetchModelDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:2000/api/serviceCenter/getCarModel/${modelId}`,{
+                const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/getCarModel/${modelId}`,{
                     headers: {
                       "Content-Type": "application/json",
                       Authorization: `Bearer ${token}`,
@@ -235,7 +235,7 @@ const token = localStorage.getItem('token');
         const fetchFuelTypes = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:2000/api/serviceCenter/getFuelTypesByBrandAndModel/${brandId}/${modelId}`,
+                    `https://gocarsmithbackend.onrender.com/api/serviceCenter/getFuelTypesByBrandAndModel/${brandId}/${modelId}`,
                     {
                         headers: {
                           "Content-Type": "application/json",
@@ -280,7 +280,7 @@ const token = localStorage.getItem('token');
             SafetyFee: SafetyFee
         }
         try {
-            const response = await axios.post(`http://localhost:2000/api/ServiceCenter/AddAppointment`, finalData, {
+            const response = await axios.post(`https://gocarsmithbackend.onrender.com/api/ServiceCenter/AddAppointment`, finalData, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
