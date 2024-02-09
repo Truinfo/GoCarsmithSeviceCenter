@@ -349,7 +349,7 @@ function OnsiteAppointment({ onAppointmentCreated }) {
       <Grid
         style={{
          
-          marginBottom: 20,
+          marginBottom:20,
           display: "flex",
           justifyContent: "space-between",
           alginItems: "center",
@@ -384,7 +384,7 @@ function OnsiteAppointment({ onAppointmentCreated }) {
               borderRadius: "25px",
             }}
           >
-            {" "}
+            
             + Create
           </Button>
         </div>
@@ -395,7 +395,7 @@ function OnsiteAppointment({ onAppointmentCreated }) {
             </Typography>
           </DialogTitle>
           <DialogContent>
-            <CreateAppointment onSubmit={handleAppointmentCreated} />
+            <CreateAppointment onSubmit={handleAppointmentCreated} onClose={handleClose}  />
           </DialogContent>
           <DialogActions>
             <Button

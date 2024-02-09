@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { Paper } from "@mui/material";
 import { Form } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
-const EditCenter = () => {
+const EditCenter = ({onSaveChanges}) => {
   const token = localStorage.getItem('token');
   const [userDetails, setUserDetails] = useState({
     firstName: "",
@@ -95,11 +95,9 @@ const EditCenter = () => {
         }
       );
 
-      if (response.status === 200) {
-        try {
-        } catch (error) {
-          console.error("Error fetching service center data:", error);
-        }
+      if (response) {
+        onSaveChanges()
+        
       }
 
       // Fetch user details again to update the state
@@ -125,22 +123,7 @@ const EditCenter = () => {
         height: "auto",
       }}
     >
-      {/* <Typography variant="h4" style={{ color: "#e74d5a" }}>ServiceCenter Profile</Typography> */}
-      {/* <div
-                    style={{
-                        width: "120px",
-                        height: "120px",
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                        margin: "0 auto 20px",
-                    }}
-                >
-                    <img
-                        src={`https://gocarsmithbackend.onrender.com${userDetails.profilePicture}`}
-                        alt="Profile"
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    />
-                </div> */}
+    
 
       <div>
         <form onSubmit={onSubmitChanges} action="">

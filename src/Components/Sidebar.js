@@ -224,7 +224,7 @@ export default function PrimarySearchAppBar() {
               label={
                 <Typography sx={{ fontWeight: 700 }}>Appointments</Typography>
               }
-              onClick={() => navigate("/ServiceCenter/Detailing")}
+              onClick={() => navigate("/ServiceCenter/appointments")}
             />
             {/* <Tab
               label={

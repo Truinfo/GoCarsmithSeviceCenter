@@ -3,18 +3,17 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+
 import axios from "axios";
-import { ButtonBase, MenuItem } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-const CreateRequestForm = () => {
-  const navigate = useNavigate();
-  const [serviceCenterId, setServiceCenterId] = useState([]);
+
+
+const CreateRequestForm = ({onClose}) => {
+
+
   const [items, setItems] = useState([{ name: "", quantity: "" }]);
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState(false);
-  const [serviceCenter, setServiceCenters] = useState([]);
-  const [selectedServiceCenterId, setSelectedServiceCenterId] = useState("");
+
   const _id = localStorage.getItem("_id");
   const token = localStorage.getItem("token");
 
@@ -67,7 +66,11 @@ console.log(email)
           
         }
       );
-      console.log("Request created successfully:", response.data);
+      
+      if(response){
+        onClose()
+      }
+     
       // Add any additional logic or state updates after a successful request creation
     } catch (error) {
       console.error("Error creating request:", error);

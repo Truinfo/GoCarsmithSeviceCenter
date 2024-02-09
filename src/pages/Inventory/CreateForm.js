@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Box, Typography, MenuItem } from '@mui/material';
 
-const AddInventoryItemForm = () => {
+const AddInventoryItemForm = ({onClose}) => {
     const [categories, setCategories] = useState([]);
     const [serviceCenterID, setServiceCenterId] = useState([]);
     const [categoryID, setCategoryID] = useState("");
@@ -68,7 +68,9 @@ const AddInventoryItemForm = () => {
                 locationInServiceCenter: '',
                 status: '',
             });
+            onClose()
             console.log('Inventory item added successfully');
+            
         } catch (error) {
             console.error('Error adding inventory item:', error);
         }

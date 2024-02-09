@@ -48,7 +48,8 @@ const ServiceCenterProfile = () => {
 
   const closeEditDialog = () => {
     setIsEditDialogOpen(false);
-    fetchData(); // Fetch data again after closing the edit dialog
+   // Fetch data again after closing the edit dialog
+   fetchData()
   };
 
   const handleCancel = () => {

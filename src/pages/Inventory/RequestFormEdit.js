@@ -68,11 +68,12 @@ const RequestFormEdit = ({ requests, onFormSubmit }) => {
         }
       )
       .then((response) => {
-        console.log("Successfully updated Request data");
+
         setSnackbarMessage("Request data updated successfully!");
         setSnackbarOpen(true);
         // Invoke the callback function to close the dialog box
         onFormSubmit();
+    
       })
       .catch((error) => {
         console.error("Error updating Request data:", error);

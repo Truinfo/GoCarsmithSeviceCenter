@@ -18,11 +18,11 @@ function Customers() {
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [OnSiteAppointmentsUsers, setOnSiteAppointmentsUsers] = useState([]);
   const ServiceCenterId = localStorage.getItem("_id");
-  const token = localStorage.getItem("token");
+
   const [users, setUsers] = useState([]);
   const [listOfServices, setListOfServices] = useState([]);
   const [carModelNames, setCarModelNames] = useState({});
-console.log(carModelNames)
+  const token=localStorage.getItem("token");
   useEffect(() => {
     // Function to fetch car model names
     const fetchCarModelNames = async () => {
@@ -34,7 +34,6 @@ console.log(carModelNames)
         }
       }
       setCarModelNames(modelNames);
-      console.log(setCarModelNames())
     };
     // Fetch car model names
     fetchCarModelNames();
@@ -43,40 +42,56 @@ console.log(carModelNames)
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://gocarsmithbackend.onrender.com/api/getAppointmentByServiceCenterId/${ServiceCenterId}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        ); 
+          `http://localhost:2000/api/getAppointmentByServiceCenterId/${ServiceCenterId}`
+        );
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching appointments:", error);
       }
     };
+    
     fetchData();
     const fetchDataOnsiteAppointment = async () => {
       try {
         const response = await axios.get(
-          `https://gocarsmithbackend.onrender.com/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
+          `http://localhost:2000/api/ServiceCenter/getTotalOnsiteAppointmentsBy/${ServiceCenterId}`,{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        ); 
+        );
         setOnSiteAppointmentsUsers(response.data);
       } catch (error) {
         console.error("Error fetching appointments:", error);
       }
     };
+
     fetchDataOnsiteAppointment();
   }, []);
+  useEffect(() => {
+    // Function to fetch car model names
+    const fetchCarModelNames = async () => {
+      const modelNames = {};
+      for (const user of OnSiteAppointmentsUsers) {
+        for (const service of user.listOfServices) {
+          const modelName = await getModelName(user.carModel);
+          modelNames[service._id] = modelName;
+        }
+      }
+      setCarModelNames(modelNames);
+    };
+    // Fetch car model names
+    fetchCarModelNames();
+  }, [OnSiteAppointmentsUsers]);
   const getModelName = async (carModel) => {
     try {
       // Replace 'your-api-endpoint' with the actual endpoint of your API
-      const response = await axios.get(`https://gocarsmithbackend.onrender.com/api/serviceCenter/CarmodelNameBy/${carModel}`,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    ); return response.data.model; // Assuming the API returns the model name
+      const response = await axios.get(`http://localhost:2000/api/serviceCenter/CarmodelNameBy/${carModel}`,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data.model; // Assuming the API returns the model name
     } catch (error) {
       console.error(error);
       return 'Unknown Model'; // Default value or error handling
@@ -95,11 +110,8 @@ console.log(carModelNames)
     });
     try {
       const response = await axios.get(
-        `https://gocarsmithbackend.onrender.com/api/ServiceCenter/ListOfSevicesBy/${_id}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      ); 
+        `http://localhost:2000/api/ServiceCenter/ListOfSevicesBy/${_id}`
+      );
       setListOfServices(response.data);
     } catch (error) {
       console.error("Error fetching appointments:", error);
@@ -136,7 +148,7 @@ console.log(carModelNames)
                   <TableCell>{listOf.carModel}</TableCell>
                   <TableCell>{service.price}</TableCell>
                   <TableCell>{dayjs(listOf.appointmentDate).format('DD-MM-YYYY')}</TableCell>
-                  <TableCell>
+                  <TableCell> 
                 <Chip label={listOf.status} color={listOf.status === 'Completed' ? 'primary' : 'default'} />
               </TableCell>
                 </TableRow>
@@ -174,8 +186,7 @@ console.log(carModelNames)
             {user.listOfServices.map((service) => (
               <TableRow key={service._id}>
                 <TableCell>{service.name}</TableCell>
-               { console.log(user._id)}
-                <TableCell>{user.carModel}</TableCell>
+                <TableCell>{carModelNames[service._id]}</TableCell>
                 <TableCell>{service.price}</TableCell>
                 <TableCell>{dayjs(user.appointmentDate).format('DD-MM-YYYY')}</TableCell>
                 <TableCell>

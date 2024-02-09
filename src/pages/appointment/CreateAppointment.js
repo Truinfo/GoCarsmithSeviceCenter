@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const CreateAppointment = () => {
+const CreateAppointment = ({onClose}) => {
 const token = localStorage.getItem('token');
     const navigate = useNavigate()
 
@@ -290,10 +290,8 @@ const token = localStorage.getItem('token');
             );
             if (response.status === 200) {
 
-
-                console.log("added appoaintment")
-                navigate('/Detailing')
-                window.location.reload(false)
+                onClose()
+                window.location.reload(false) 
             } else {
 
                 console.error("Failed to fetch locations");

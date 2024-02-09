@@ -11,9 +11,10 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Grid from "@mui/material/Grid";
 
-const CreateEmployeeForm = ({ onClose }) => {
+const CreateEmployeeForm = ({ onClose },props) => {
   const Data = JSON.parse(localStorage.getItem("ServiceCenter"));
   const serviceCenterId = Data._id;
+  const {setShowCreateForm}=props
 
   console.log(Data);
   console.log(serviceCenterId);

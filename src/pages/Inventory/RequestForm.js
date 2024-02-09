@@ -229,19 +229,6 @@ const RequestForm = () => {
         </Table>
       </TableContainer>
 
-      {/* <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={() => setSnackbarOpen(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-      >
-        <Alert severity="info">
-          Item deleted
-          <Button color="secondary" size="small" onClick={handleUndo}>
-            UNDO
-          </Button>
-        </Alert>
-      </Snackbar> */}
 
       <Dialog open={deleteDialogOpen} onClose={() => setDeleteDialogOpen(false)}>
         <DialogTitle>Delete Item</DialogTitle>
@@ -268,7 +255,7 @@ const RequestForm = () => {
       <Dialog open={showCreateForm} onClose={handleCloseCreateForm}>
         <DialogTitle style={{ fontWeight: "600", color: "#e74d5a" }}>Create Request</DialogTitle>
         <DialogContent>
-          <CreateRequestForm onFormSubmit={() => setShowCreateForm(false)} />
+          <CreateRequestForm onFormSubmit={() => setShowCreateForm(false)} onClose={handleCloseCreateForm} />
         </DialogContent>
         <DialogActions>
           <Button

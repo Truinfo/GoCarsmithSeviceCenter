@@ -124,7 +124,7 @@ const InventoryList = () => {
             Create Form
           </DialogTitle>
           <DialogContent>
-            <CreateForm onFormSubmit={handleFormSubmit} />
+            <CreateForm onFormSubmit={handleFormSubmit} onClose={handleCloseCreateForm}  />
           </DialogContent>
           <DialogActions padding={3}>
             <Button onClick={handleCloseCreateForm} style={{

@@ -695,42 +695,7 @@ export default function Dash() {
                 </RadarChart>
               </ResponsiveContainer>
             </Grid>
-            {/* <Grid item xs={12} md={6}>
-                <Typography variant="h5" align="center" gutterBottom>
-                  Income
-                </Typography>
-                <ResponsiveContainer width="100%" height={300}>
-    <ScatterChart
-      margin={{ top: 15, right: 0, bottom: 15, left: 0 }}
-    >
-      <CartesianGrid />
-      <XAxis type="category" dataKey="label" name="Category" />
-      <YAxis type="number" dataKey="income" name="Income" stroke="red"  fill="red" />
-      <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-      <Legend />
-      <Scatter name="Income" data={data} fill="red" />
-    </ScatterChart>
-  </ResponsiveContainer>
-              </Grid> */}
-
-            {/* <Grid item xs={12}>
-                <Typography variant="h5" align="center" gutterBottom>
-                  Appointment Analytics
-                </Typography>
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart
-                    data={data1}
-                    margin={{ top: 15, right: 0, bottom: 15, left: 0 }}
-                  >
-                    <XAxis dataKey="label" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="appointments" fill="steelblue" />
-                    <Bar dataKey="cancelations" fill="#FF6384" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </Grid> */}
+           
             <Grid item xs={6} style={{ marginTop: "90px" }}>
               <Typography variant="h4" align="center" gutterBottom>
                 <b>Inventory Count</b>
@@ -791,7 +756,7 @@ export default function Dash() {
           {generateTable()}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseTable} color="primary">
+          <Button onClick={handleCloseTable} color="primary" style={{border:"1px solid #0a568c",}}>
             Close
           </Button>
         </DialogActions>

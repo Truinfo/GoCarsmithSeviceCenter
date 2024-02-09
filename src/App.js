@@ -54,7 +54,7 @@ const App = () => {
 
 
 
-                  <Route path="/ServiceCenter/Detailing" element={<Detailing />} />
+                  <Route path="/ServiceCenter/appointments" element={<Detailing />} />
 
 
 

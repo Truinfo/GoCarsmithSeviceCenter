@@ -83,6 +83,7 @@ const StaffList = () => {
   const handleFormSubmit = () => {
     fetchData(); // Fetch data after form submission
     setShowEditEmployeeForm(false);
+    
   };
 
   const handleConfirmDelete = () => {
@@ -141,7 +142,7 @@ const StaffList = () => {
               Create Employee
             </DialogTitle>
             <DialogContent>
-              <CreateEmployeeForm onFormSubmit={handleFormSubmit} />
+              <CreateEmployeeForm onFormSubmit={handleFormSubmit} onClose={handleCloseCreateForm}  />
             </DialogContent>
             <DialogActions>
               <Button
